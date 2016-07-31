@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html ng-app="docApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Document Manager Application</title>
+	<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel='stylesheet' type='text/css'> -->
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	<!-- <script src="/bower_components/jquery/jquery-ui.min.js"></script> -->
+	<script type="text/javascript" src="Resources/dynamsoft.webtwain.initiate.js"></script>
+	<script type="text/javascript" src="Resources/dynamsoft.webtwain.config.js"></script>
+	<!-- <script src="/app/controllers/scanController.js"></script>
+	<script src="/app/controllers/loadController.js"></script>
+	<script src="/app/controllers/imgEditorController.js"></script>
+	<script src="/app/controllers/navController.js"></script>
+	<script src="/app/controllers/saveController.js"></script> -->
+	
+	<!-- <script src="/app/directives/myFooter.js"></script> -->
+	<!-- <script type="text/javascript">
+		
+			/*var myConfig = {
+				"backdrop":"static",
+				"show": true,
+				"keyboard": true
+			};*/
+			$(window).load(function(){
+				$('#myModal').modal('show');
+			});
+	</script> -->
+	<!-- <script type="text/javascript">
+		$(window).load(function(){
+			document.write($('#myContainer').ShowImageEditor());
+		});
+	</script> -->
+</head>
+<body>
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Document Manager Dialog  Screen</h4>
+ 
+<p>Click on an option below</p>
+      </div>
+    <div class="modal-body">
+       
+<!-- End mc_embed_signup -->
+ 
+  <!--  Begin MailChimp Signup Form
+<form class="form-horizontal" role="form">
+	<div style="position: absolute; left: -1000px;">
+		<a class="btn btn-danger" href="#" role="button"><span class="glyphicon glyphicon-scan">Scan a Document</span></a>
+		<a class="btn btn-danger" href="#" role="button"><span class="glyphicon glyphicon-search"> Search for a document</span></a>
+	</div>
+    
+   </div>
+</form>
+  -->
+<!--End mc_embed_signup-->
+      <!-- </div>
+      <div class="modal-footer remove-top">
+      </div>
+    </div>
+  </div>
+</div> -->
+		<nav class="navbar navbar-light bg-faded">
+			<a class="navbar-brand" href="#"><img src="app/images/coa.jpg" width="50" height="auto" class="clearfix:both;padding-bottom:5px;padding-top:3px;"></a>
+			<!-- <ul class="nav navbar-nav">
+				<li class="nav-item active">
+				<div>
+					<a class="nav-link" href="#"></a>
+				</div>
+				</li>
+			</ul> -->
+			<span><h4 style="text-align:center;line-height:1.9em;"><strong><em>DOCUMENT MANAGER APPLICATION</em></strong></h4></span>
+			<form class="form-inline navbar-form pull-left">
+				<input class="form-control" type="text" placeholder="Search for a document">
+				<button class="btn btn-success-outline" type="submit">Search</button>
+			</form>
+		</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-offset-1 col-sm-9 well">
+				<div class="jumbotron" style="background-color:white;width:100%;height:65%;">
+						<label for="BW">
+						        <input type="radio" id="BW" name="PixelType">B&amp;W </label>
+						    <label for="Gray">
+						        <input type="radio" id="Gray" name="PixelType">Gray</label>
+						    <label for="RGB">
+						        <input type="radio" id="RGB" name="PixelType" checked="checked">Color</label>
+						    |
+
+						    <label>
+						        <input type="checkbox" id="ADF" checked="checked">Auto Feeder</label>
+						    <label>
+						        <input type="checkbox" id="ShowUI" checked="checked">Show UI<br />
+						    </label>
+
+						    <select size="1" id="Resolution">
+						        <option value="100">100</option>
+						        <option value="150">150</option>
+						        <option value="200">200</option>
+						        <option value="300">300</option>
+						    </select>
+						    <select size="1" id="source" style="position: relative; width: 220px;"></select><br>
+
+						    <input type="button" value="Scan Document" onclick="AcquireImage();" class="btn btn-danger btn-sm" />
+
+						    <div id="dwtcontrolContainer" style="padding-top:4px; padding-bottom:4px;"></div>
+						    <script type="text/javascript">
+						            Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', Dynamsoft_OnReady); // Register OnWebTwainReady event. This event fires as soon as Dynamic Web TWAIN is initialized and ready to be used
+
+						            var DWObject;
+
+						            function Dynamsoft_OnReady() {
+						                DWObject = Dynamsoft.WebTwainEnv.GetWebTwain('dwtcontrolContainer'); // Get the Dynamic Web TWAIN object that is embeded in the div with id 'dwtcontrolContainer'
+						                if (DWObject) {
+						                    var count = DWObject.SourceCount;
+						                    for (var i = 0; i < count; i++)
+						                        document.getElementById("source").options.add(new Option(DWObject.GetSourceNameItems(i), i));
+						                }
+						            }
+						            function AcquireImage() {
+						                if (DWObject) {
+						                    DWObject.SelectSourceByIndex(document.getElementById("source").selectedIndex);
+						                    DWObject.OpenSource();
+						                    DWObject.IfDisableSourceAfterAcquire = true;
+						                    //Pixel type
+						                    if (document.getElementById("BW").checked)
+						                        DWObject.PixelType = EnumDWT_PixelType.TWPT_BW;
+						                    else if (document.getElementById("Gray").checked)
+						                        DWObject.PixelType = EnumDWT_PixelType.TWPT_GRAY;
+						                    else if (document.getElementById("RGB").checked)
+						                        DWObject.PixelType = EnumDWT_PixelType.TWPT_RGB;
+						                    //If auto feeder
+						                    if (document.getElementById("ADF").checked)
+						                        DWObject.IfFeederEnabled = true;
+						                    else
+						                        DWObject.IfFeederEnabled = false;
+						                    //If show UI
+						                    if (document.getElementById("ShowUI").checked)
+						                        DWObject.IfShowUI = true;
+						                    else
+						                        DWObject.IfShowUI = false;
+						                    //Resolution
+						                    DWObject.Resolution = parseInt(document.getElementById("Resolution").value);
+						    				
+						    				if(document.getElementById("ADF").checked && DWObject.IfFeederEnabled == true)  // if paper is NOT loaded on the feeder
+						    				{
+						    					if(DWObject.IfFeederLoaded != true && DWObject.ErrorCode == 0)
+						    					{
+						    						alert("No paper detected! Please load papers and try again!");
+						    						return;
+						    					}			
+						    				}
+						    					
+						    				DWObject.AcquireImage();
+						                }
+						            }
+					        </script>
+					    
+					    <button class="btn btn-warning btn-sm" onclick="ShowImageEditor();" style="text-decoration:none;"><span class="glyphicon glyphicon-edit">Edit image</span></button>
+					    <script type="text/javascript">
+					    	function ShowImageEditor() {
+					    	    if (DWObject) {
+					    	        if (DWObject.HowManyImagesInBuffer == 0)
+					    	            alert("There is no image in buffer.");
+					    	        else
+					    	            DWObject.ShowImageEditor();
+					    	    }
+					    	}
+					    </script>
+					    <input type="button" value="Save Document" onclick="SaveWithFileDialog();" class="btn btn-success btn-sm" />
+					        <br />
+					        <label><input type="radio" value="jpg" name="ImageType" id="imgTypejpeg" disabled="true" />JPEG</label>
+					        <label><input type="radio" value="tif" name="ImageType" id="imgTypetiff" disabled="true" />TIFF</label>
+					        <label><input type="radio" value="pdf" name="ImageType" id="imgTypepdf" checked="checked" />PDF</label>
+
+					    <div id="dwtcontrolContainer" style="padding-top:4px; padding-bottom:4px;"></div>
+					    <script type="text/javascript">
+					            Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', Dynamsoft_OnReady); // Register OnWebTwainReady event. This event fires as soon as Dynamic Web TWAIN is initialized and ready to be used
+
+					            var DWObject;
+
+					            function Dynamsoft_OnReady() {
+					                DWObject = Dynamsoft.WebTwainEnv.GetWebTwain('dwtcontrolContainer'); // Get the Dynamic Web TWAIN object that is embeded in the div with id 'dwtcontrolContainer'
+					                if (DWObject) {
+					                    DWObject.RegisterEvent('OnPostAllTransfers', SaveWithFileDialog);
+					                }
+					            }
+
+					            function AcquireImage() {
+					                if (DWObject) {
+					                    DWObject.SelectSource();
+					                    DWObject.OpenSource();
+					                    DWObject.IfDisableSourceAfterAcquire = true;	// Scanner source will be disabled/closed automatically after the scan.
+					                    DWObject.AcquireImage();
+					                }
+					            }
+
+					            //Callback functions for async APIs
+					            function OnSuccess() {
+					                console.log('successful');
+					            }
+
+					            function OnFailure(errorCode, errorString) {
+					                alert(errorString);
+					            }
+
+					            /*function LoadImage() {
+					                if (DWObject) {
+					                    DWObject.IfShowFileDialog = true; // Open the system's file dialog to load image
+					                    DWObject.LoadImageEx("", EnumDWT_ImageType.IT_ALL, OnSuccess, OnFailure); // Load images in all supported formats (.bmp, .jpg, .tif, .png, .pdf). OnSuccess or OnFailure will be called after the operation
+					                }
+					            }*/
+
+					            function SaveWithFileDialog() {
+					                if (DWObject) {
+					                    if (DWObject.HowManyImagesInBuffer > 0) {
+					                        DWObject.IfShowFileDialog = true;
+					                        if (document.getElementById("imgTypejpeg").checked == true) {
+					                            //If the current image is B&W
+					                            //1 is B&W, 8 is Gray, 24 is RGB
+					                            if (DWObject.GetImageBitDepth(DWObject.CurrentImageIndexInBuffer) == 1)
+					                                //If so, convert the image to Gray
+					                                DWObject.ConvertToGrayScale(DWObject.CurrentImageIndexInBuffer);
+					                            //Save image in JPEG
+					                            DWObject.SaveAsJPEG("DynamicWebTWAIN.jpg", DWObject.CurrentImageIndexInBuffer);
+					                        }
+					                        else if (document.getElementById("imgTypetiff").checked == true)
+					                            DWObject.SaveAllAsMultiPageTIFF("DynamicWebTWAIN.tiff", OnSuccess, OnFailure);
+					                        else if (document.getElementById("imgTypepdf").checked == true)
+					                            DWObject.SaveAllAsPDF("DynamicWebTWAIN.pdf", OnSuccess, OnFailure);
+					                    }
+					                }
+					            }
+					        </script>
+				</div>
+	</div>
+	<footer class="footer">
+      <div class="container">
+        <p><span class="glyphicon glyphicon-heart"> Akinmade Adebayo Luqman Copyright 2016</span></p>
+      </div>
+    </footer>
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="/app/app.js"></script>
+	<!-- <script src="/app/controllers/thumbNailController.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<!-- <script src="/bower_components/angular/angular.min.js"></script> -->
+	<script src="/bower_components/angular/angular-aria.min.js"></script>
+	<script src="/bower_components/angular/angular-animate.min.js"></script>
+	<script src="/bower_components/angular/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc.5/angular-material.min.js"></script>
+	<!-- <script src="/bower_components/angular/angular-material"></script> -->
+	<script src="/bower_components/angular/angular-file-upload"></script>
+</body>
+</html>

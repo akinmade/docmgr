@@ -1,0 +1,23 @@
+{
+  "name": "resources",
+  "homepage": "https://github.com/akinmade/docmgr",
+  "authors": [
+    "akinmade <akinmade.adebayo@gmail.com>"
+  ],
+  "description": "scanner plugins and extensions for the web",
+  "main": "index.html",
+  "keywords": [
+    "dynamsoft",
+    "scan",
+    "twainscanner"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

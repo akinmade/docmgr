@@ -1,0 +1,40 @@
+{
+  "name": "docmgr",
+  "homepage": "https://github.com/akinmade/docmgr",
+  "authors": [
+    "akinmade <akinmade.adebayo@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "keywords": [
+    "document",
+    "manager",
+    "scan",
+    "load",
+    "save",
+    "image",
+    "angular"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.0.9",
+    "bootstrap": "^3.3.7",
+    "jquery-ui": "^1.12.0"
+  },
+  "resolutions": {
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "grunt-cli": "^1.2.0",
+    "grunt": "^1.0.1",
+    "resources": "c:/wamp/www/docmgr/Resources"
+  }
+}
